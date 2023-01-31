@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Flipper</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="nav-centre">
+            <h3>Color Flipper</h3>
+            <ul class="nav-links">
+                <li><a href="color-flipper.html">Simple</a></li>
+                <li><a href="color-flipper1.html">Hex</a></li>
+            </ul>
+        </div>
+    </nav>
+    <main>
+        <div class="container" style="background-color: black; color: white;">
+            <h2>Background color: <span class="color">#f1f5f8</span></h2>
+            <button class="btn" id="btn">Click</button>
+        </div>
+    </main>
+</body>
+<script>
+    const hexcolors=[1,2,3,4,5,6,7,8,9,0,"A","B","C","D","E","F"]
+    const btn=document.getElementById("btn")
+    const color=document.querySelector(".color")
+
+    btn.addEventListener("click",function(){
+        let hex="#"
+        for(let i=0;i<6;i++){
+            const num = Math.abs((Math.floor(Math.random()*hexcolors.length)))
+            hex+=hexcolors[num]
+        }
+        document.body.style.backgroundColor=hex
+        color.textContent=hex
+    })
+
+    function change(){
+        let hex="#"
+        for(let i=0;i<6;i++){
+            const num = Math.abs((Math.floor(Math.random()*hexcolors.length)))
+            hex+=hexcolors[num]
+        }
+        document.body.style.backgroundColor=hex
+        color.textContent=hex
+    }
+    setInterval(change,1000)
+</script>
+
+</html>
